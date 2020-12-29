@@ -1,0 +1,81 @@
+package com.lti.entity;
+
+import java.time.LocalDate;
+import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+
+
+@Entity
+@Table(name="tbl_song")
+public class Song {
+	
+	@Id
+	@GeneratedValue
+	@Column(name="song_id")
+	private int id;
+	private String name;
+	private LocalDate releaseDate;
+	private String copyright;
+	
+	
+	/*@ManyToOne(mappedBy="album")*/
+	private List<Song> songs;
+
+
+	public int getId() {
+		return id;
+	}
+
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+
+	public String getName() {
+		return name;
+	}
+
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+
+	public LocalDate getReleaseDate() {
+		return releaseDate;
+	}
+
+
+	public void setReleaseDate(LocalDate releaseDate) {
+		this.releaseDate = releaseDate;
+	}
+
+
+	public String getCopyright() {
+		return copyright;
+	}
+
+
+	public void setCopyright(String copyright) {
+		this.copyright = copyright;
+	}
+
+
+	public List<Song> getSongs() {
+		return songs;
+	}
+
+
+	public void setSongs(List<Song> songs) {
+		this.songs = songs;
+	}
+
+}
